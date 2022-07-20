@@ -12,3 +12,5 @@ Jair,
 Edison, 
 Luiz,
 Wilmar
+
+Consulta ao documento do projeto em : https://docs.google.com/document/d/1rD1GkUeY6CgmqXB6Mx0aZjN4KkyYH4NoW74nIc_j4j8/edit
