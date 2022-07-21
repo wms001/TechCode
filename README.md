@@ -5,13 +5,13 @@ TechCode - Projeto final do curso de introdução ao Microsft Azure Platform.
 </p>
 
 Grupo TechCode:
-Nivaldo, 
 Cida, 
-Rubens, 
-Jair, 
-Edison, 
+Edison,
+Wilmar,
 Luiz,
-Wilmar
+Nivaldo,
+Rubens, 
+Jair.
 
 Consultas: 
 Documento do projeto em : https://docs.google.com/document/d/1rD1GkUeY6CgmqXB6Mx0aZjN4KkyYH4NoW74nIc_j4j8/edit
