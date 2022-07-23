@@ -16,4 +16,6 @@ Jair.
 Consultas: 
 Documento do projeto em : https://docs.google.com/document/d/1rD1GkUeY6CgmqXB6Mx0aZjN4KkyYH4NoW74nIc_j4j8/edit
 
-Kanban do projeto em : https://trello.com/b/s6dgX3P4/techcode
+Kanban em : https://trello.com/b/s6dgX3P4/techcode 
+
+Canvas em : https://jamboard.google.com/d/1xqUaDYdIIinBCpBS2qHG9Ar3GtDwfNMzw5AjB4WMTX0/viewer
