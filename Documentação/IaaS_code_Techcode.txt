@@ -1,0 +1,42 @@
+===================================================================
+= Criado por: Edison Y.Takaesu
+= Data : 22/07/2022
+= Este arquivo serve para criar linha a linha, ou seja, 
+= copiar os comandos começando com az (Azure) e colar na linha de comando do PowerShell do Azure
+= Assim aguardar até a  sua criação
+= v.1.02 - TechCodeWeb04db04
+===================================================================
+//Cloud Shell
+
+az group create --name TechCode --location eastus --tags tech04 04
+
+//Create NSG - Network Security Group
+
+az network nsg create --resource-group TechCode --name NSGfrontend --tags tech04 04
+az network nsg create --resource-group TechCode --name NSGbackendSQL --tags tech04 04
+az network nsg create --resource-group TechCode --name NSGbackendNOSQL --tags tech04 04
+
+//Create Virtual Network e subNet Front
+
+az network vnet create --resource-group TechCode --name vnet04 --address-prefix 10.0.0.0/16 --subnet-name frontend --subnet-prefix 10.0.1.0/24 --network-security-group NSGfrontend
+
+//Create Subnet Backend 
+
+az network vnet subnet create --resource-group TechCode --vnet-name vnet04  --name backendSQL --address-prefix 10.0.2.0/24 --network-security-group NSGbackendSQL
+az network vnet subnet create --resource-group TechCode --vnet-name vnet04  --name backendNOSQL --address-prefix 10.0.3.0/24 --network-security-group NSGbackendNOSQL
+
+// NSG COM AS PLACAS DE REDE NIC´S
+
+az network nic create --resource-group TechCode --name Nic1 --vnet-name vnet04 --subnet frontend --network-security-group NSGfrontend
+az network nic create --resource-group TechCode --name Nic2 --vnet-name vnet04 --subnet backendSQL --network-security-group NSGbackendsql
+az network nic create --resource-group TechCode --name Nic3 --vnet-name vnet04 --subnet backendNOSQL --network-security-group NSGbackendnosql
+
+//  instalar Virtual Machine
+
+az vm create --resource-group TechCode --subnet frontend --vnet-name vnet04 --name Web_01 --image Win2022AzureEditionCore --public-ip-sku Standard --admin-username web04
+az vm create --resource-group TechCode --subnet backendSQL --vnet-name vnet04 --name BD_SQL_01 --image Win2022AzureEditionCore --public-ip-sku Standard --public-ip-address '""' --private-ip-address 10.0.2.150 --admin-username web04
+az vm create --resource-group TechCode --subnet backendNOSQL --vnet-name vnet04 --name BD_NOSQL_01 --image Win2022AzureEditionCore --public-ip-sku Standard --public-ip-address '""' --private-ip-address 10.0.3.112 --admin-username web04
+
+// REMOVER ResouceGROUP....
+
+az group delete -n TechCode
